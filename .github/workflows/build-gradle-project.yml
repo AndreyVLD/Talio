@@ -22,13 +22,13 @@ jobs:
         uses: 'actions/upload-artifact@v2'
         with:
           name: report.xml
-          path: ${{ github.workspace }}/AggregateJacocoReport.xml
+          path: ${{ github.workspace }}build/reports/jacoco/aggregate/html ./coverage
 
       - name: Jacoco Report to PR
         id: jacoco
         uses: madrapps/jacoco-report@v1.1
         with:
-            path: ${{ github.workspace }}/AggregateJacocoReport.xml
+            path: ${{ github.workspace }}build/reports/jacoco/aggregate/jacocoTestReport.xml ./coverage/report.xml
             token: ${{ secrets.GITHUB_TOKEN }}
             min-coverage-overall: 40
             min-coverage-changed-files: 60
