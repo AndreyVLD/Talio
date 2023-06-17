@@ -21,7 +21,6 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew build
-          ./gradlew test
           ./gradlew jacocoTestReport
 
       - name: Generate JaCoCo Badge
