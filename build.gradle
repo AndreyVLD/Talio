@@ -26,16 +26,16 @@ subprojects {
 		configFile = '../checkstyle.xml' as File
 	}
 
-	tasks.named('test') {
+	tasks.named('test'){
 		useJUnitPlatform()
-		finalizedBy jacocoTestReport 
+		finalizedBy jacocoTestReport
 	}
 	jacocoTestReport {
 		reports {
-			xml.required = false
-			csv.required = false
+			xml.enabled=true
+			csv.enabled=true
 			html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-			}
+		}
 	}
 	
 	dependencies {

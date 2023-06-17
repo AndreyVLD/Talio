@@ -1,26 +1,30 @@
-name: Build Gradle project
+name: Jacoco Report
 
 on:
   push:
+  pull_request:
 
 jobs:
-  build-gradle-project:
+  jacoco-report:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v2
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-      - name: Run build with Gradle Wrapper
-        run: ./gradlew build
-      - name: Run tests
-        run: ./gradlew AggregateJacocoReport
-      - name: preserve coverage information in an easy-to-reach folder
-        run: mv build/reports/jacoco/aggregate/html ./coverage
-      - name: preserve coverage information in an easy-to-reach folder
-        run: mv build/reports/jacoco/aggregate/jacocoTestReport.xml ./coverage/report.xml
-      - name: preserve coverage information in an easy-to-reach folder
-        run: echo `cat coverage/index.html | grep -o -E "Total[^%]+?%" | sed -E "s/<.*>//" | sed -E "s/Total/TestCoverage:/"`
-        paths: ./coverage
-        coverage: /TestCoverage:(\d+)%/
 
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '19'  # Update with your desired Java version
+          distribution: 'adopt'
+
+      - name: Build and Test
+        run: |
+          chmod +x ./gradlew
+          ./gradlew build
+          ./gradlew AggregateJacocoReport
+      - name: Upload Report For Pull
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: ${{ github.workspace }}/build/reports/jacoco/aggregate/jacocoTestReport.xml
