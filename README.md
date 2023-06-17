@@ -1,5 +1,5 @@
+[![codecov](https://codecov.io/gh/AndreyVLD/Talio/branch/main/graph/badge.svg?token=RG62SHCO3V)](https://codecov.io/gh/AndreyVLD/Talio)
 ## Description
-
 Talio is a task management application that allows users to create, 
 organize, and manage tasks efficiently. The application consists of a 
 separate server and client application, with the server providing the backend 
