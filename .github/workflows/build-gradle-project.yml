@@ -2,6 +2,7 @@ name: Jacoco Report
 
 on:
   push:
+  pull_request:
 
 jobs:
   jacoco-report:
@@ -24,7 +25,9 @@ jobs:
           ./gradlew AggregateJacocoReport
 
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
         with:
             name: coverage-report
             path: ${{ github.workspace }}/build/reports/jacoco/aggregate/jacocoTestReport.xml
+            token: ${{ secrets.GITHUB_TOKEN }}
