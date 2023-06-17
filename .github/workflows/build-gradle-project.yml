@@ -42,7 +42,7 @@ jobs:
           echo "::set-output name=test_coverage::$test_coverage"
 
       - name: Publish Comment
-        uses: actions/github-script@4.1.0
+        uses: actions/github-script@v5
         with:
           script: |
             const comment = `
