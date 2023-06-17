@@ -1,40 +1,63 @@
-name: Build Gradle project
+name: Jacoco Report
 
 on:
   push:
 
 jobs:
-  build-gradle-project:
+  jacoco-report:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v2
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-      - name: Run build with Gradle Wrapper
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '19'  # Update with your desired Java version
+
+      - name: Build and Test
         run: |
-          chmod +x gradlew
+          chmod +x ./gradlew
           ./gradlew build
-      - name: Run tests
-        run: ./gradlew AggregateJacocoReport
+          ./gradlew AggregateJacocoReport
 
       - name: Upload Report
-        uses: 'actions/upload-artifact@v2'
+        uses: actions/upload-artifact@v2
         with:
-          name: report.xml
-          path: ${{ github.workspace }}build/reports/jacoco/aggregate/html ./coverage
+          name: coverage-report
+          path: build/reports/jacoco/aggregate
 
-      - name: Jacoco Report to PR
-        id: jacoco
-        uses: madrapps/jacoco-report@v1.1
+      - name: Download Report
+        uses: actions/download-artifact@v2
         with:
-            path: ${{ github.workspace }}build/reports/jacoco/aggregate/jacocoTestReport.xml ./coverage/report.xml
-            token: ${{ secrets.GITHUB_TOKEN }}
-            min-coverage-overall: 40
-            min-coverage-changed-files: 60
-            debug-mode: false
+          name: coverage-report
+          path: coverage-report
 
-      - name: Get the Coverage info
+      - name: Parse Coverage
+        id: parse-coverage
         run: |
-            echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
-            echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
+          test_coverage=$(cat coverage-report/index.html | grep -o -E "Total[^%]+?%" | sed -E "s/<.*>//" | sed -E "s/Total/TestCoverage:/")
+          echo "::set-output name=test_coverage::$test_coverage"
+
+      - name: Publish Comment
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: pullRequest } = await context.github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+
+            const comment = `
+            Test Coverage: ${{ steps.parse-coverage.outputs.test_coverage }}
+            `;
+
+            await context.github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pullRequest.number,
+              body: comment
+            });
