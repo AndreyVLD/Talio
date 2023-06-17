@@ -1,3 +1,5 @@
+<img src="https://codecov.io/gh/AndreyVLD/Talio/branch/main/graphs/tree.svg?token=RG62SHCO3V" height="96">
+
 [![codecov](https://codecov.io/gh/AndreyVLD/Talio/branch/main/graph/badge.svg?token=RG62SHCO3V)](https://codecov.io/gh/AndreyVLD/Talio)
 ## Description
 Talio is a task management application that allows users to create, 
