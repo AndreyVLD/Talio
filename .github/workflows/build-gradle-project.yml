@@ -46,19 +46,14 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { data: pullRequest } = await context.github.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number
-            });
-
             const comment = `
             Test Coverage: ${{ steps.parse-coverage.outputs.test_coverage }}
             `;
-
-            await context.github.issues.createComment({
+            
+            const octokit = github.getOctokit('${{ secrets.GITHUB_TOKEN }}');
+            await octokit.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: pullRequest.number,
+              issue_number: context.payload.pull_request.number,
               body: comment
             });
