@@ -200,7 +200,7 @@ public class Task {
         root.addEventHandler(KeyEvent.KEY_PRESSED, keyEventEventHandler);
     }
 
-
+    @SuppressWarnings("CyclomaticComplexity")
     private void onMouseDragged(MouseEvent event) {
         cardService.dragDropEnabled(-1);
         if (!dragging) {
