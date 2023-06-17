@@ -15,12 +15,13 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-      - name: Run tests
-        run: ./gradlew AggregateJacocoReport
-      - name: preserve coverage information in an easy-to-reach folder
-        run: mv build/reports/jacoco/aggregate/html ./coverage
-      - name: preserve coverage information in an easy-to-reach folder
-        run: mv build/reports/jacoco/aggregate/jacocoTestReport.xml ./coverage/report.xml
-      - name: preserve coverage information in an easy-to-reach folder
-        run: echo `cat coverage/index.html | grep -o -E "Total[^%]+?%" | sed -E "s/<.*>//" | sed -E "s/Total/TestCoverage:/"`
+
+      - name: Add Coverage to PR
+          id: jacoco
+          uses: madrapps/jacoco-report@v1.3
+          with:
+            paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+            token: ${{ secrets.GITHUB_TOKEN }}
+            min-coverage-overall: 40
+            min-coverage-changed-files: 60
 
