@@ -60,7 +60,7 @@ jobs:
               issue_number: process.env.GITHUB_PULL_REQUEST_NUMBER,
               body: comment,
             });
-          env:
+        env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
             GITHUB_REPOSITORY: ${{ github.repository }}
