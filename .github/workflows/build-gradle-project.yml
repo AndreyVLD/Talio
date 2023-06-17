@@ -21,39 +21,11 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew build
-          ./gradlew AggregateJacocoReport
+          ./gradlew test
+          ./gradlew jacocoTestReport
 
-      - name: Upload Report
-        uses: actions/upload-artifact@v2
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
         with:
-          name: coverage-report
-          path: build/reports/jacoco/aggregate
-
-      - name: Download Report
-        uses: actions/download-artifact@v2
-        with:
-          name: coverage-report
-          path: coverage-report
-
-      - name: Parse Coverage
-        id: parse-coverage
-        run: |
-          test_coverage=$(cat coverage-report/index.html | grep -o -E "Total[^%]+?%" | sed -E "s/<.*>//" | sed -E "s/Total/TestCoverage:/")
-          echo "::set-output name=test_coverage::$test_coverage"
-
-      - name: Publish Comment
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const comment = `
-            Test Coverage: ${{ steps.parse-coverage.outputs.test_coverage }}
-            `;
-            
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.payload.pull_request.number,
-              body: comment
-            });
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            generate-branches-badge: true
+            jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
