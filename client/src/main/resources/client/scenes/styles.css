@@ -1,0 +1,93 @@
+.menu .label
+{
+    -fx-text-fill: D9D9D9;
+    -fx-font-size: 14px;
+
+}
+
+.menu-item
+{
+-fx-text-fill:  #D9D9D9;
+-fx-background-color: #3E3E3E;
+-fx-padding: 4px;
+-fx-border-color:#3E3E3E;
+-fx-border-width: 1px;
+}
+.context-menu
+{
+-fx-padding: 0;
+}
+
+.menu-item:focused {
+    -fx-background-color: #969A9F;
+}
+
+.tree-view .tree-cell{
+    -fx-background-color:  #787878;
+    -fx-text-fill: White;
+}
+.tree-view {
+    -fx-background-insets: 2;
+}
+.tree-view .tree-cell:focused {
+    -fx-background-color: #969A9F;
+}
+
+.text-area {
+    -fx-control-inner-background: #ebebeb;
+    -fx-text-fill: #6a6a6a;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-effect: null;
+}
+
+.card-title {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 24px;
+}
+
+.card-title:focused {
+    -fx-background-color: #ebebeb;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+}
+
+
+.tree-view .tree-cell:selected {
+    -fx-background-color: #969A9F;
+}
+.popup-vbox{
+    -fx-background-color:#B5B5B5;
+    -fx-background-radius: 10;
+}
+
+.submitButton {
+    -fx-background-color: #308FFF;
+    -fx-background-radius: 10;
+    -fx-border-color: #2472C8;
+    -fx-border-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
+
+.submitButton:hover {
+    -fx-background-color: #2472C8;
+    -fx-border-color: #1C528E;
+}
+
+.submitButton:pressed {
+    -fx-background-color: #1C528E;
+    -fx-border-color: #0A1E41;
+}

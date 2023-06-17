@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.EditTagsCtrl">
+   <content>
+      <VBox fx:id="tagHolder" prefHeight="400.0" prefWidth="280.0">
+         <children>
+            <StackPane fx:id="stackpaneaddtag" prefHeight="35.0" prefWidth="260.0" style="-fx-background-color: #7E7E7E; -fx-background-radius: 10;">
+               <children>
+                  <Label text="Add Tag" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="+" graphicTextGap="0.0" mnemonicParsing="false" onAction="#addTag" prefHeight="15.0" prefWidth="15.0" style="-fx-background-color: white; -fx-text-fill: #7E7E7E; -fx-border-width: 0; -fx-background-radius: 50%;" text="+" textAlignment="CENTER" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets left="10.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="5.0" />
+               </VBox.margin>
+            </StackPane>
+         </children>
+      </VBox>
+   </content>
+   <padding>
+      <Insets bottom="10.0" top="10.0" />
+   </padding>
+</ScrollPane>

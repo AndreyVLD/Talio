@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox>
+         <children>
+            <Label prefHeight="25.0" prefWidth="109.0" text="Server address:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField id="serverTextField" fx:id="serverTextField" prefHeight="25.0" prefWidth="212.0" text="localhost" />
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <Label prefHeight="25.0" prefWidth="109.0" text="Server port:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField id="portTextField" fx:id="portTextField" prefHeight="25.0" prefWidth="212.0" text="8080" />
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <Label prefHeight="25.0" prefWidth="109.0" text="Username:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField id="usernameTextField" fx:id="usernameTextField" prefHeight="25.0" prefWidth="212.0" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

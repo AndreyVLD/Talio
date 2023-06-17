@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.NewCardCtrl">
+    <children>
+        <StackPane fx:id="stackPane" prefHeight="40.0" prefWidth="240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <TextField fx:id="newCardTitle" prefHeight="40.0" prefWidth="200.0" promptText="Enter a title" />
+                <Button fx:id="closeDialogButton" mnemonicParsing="false" onAction="#onCloseButtonClicked" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="X" StackPane.alignment="TOP_RIGHT">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                    <StackPane.margin>
+                        <Insets />
+                    </StackPane.margin>
+                </Button>
+            </children>
+         <padding>
+            <Insets left="-10.0" />
+         </padding>
+        </StackPane>
+    </children>
+</AnchorPane>

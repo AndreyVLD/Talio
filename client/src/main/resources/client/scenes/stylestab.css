@@ -1,0 +1,15 @@
+.tab-pane *.tab-header-background
+{
+-fx-background-color: #4A4A4A;
+}
+
+.tab-pane:top .tab-header-area .headers-region .tab:selected:top .tab-container .tab-label .text
+{
+-fx-fill: #FFFFFF;
+-fx-font-size: 10pt;
+}
+
+.tab
+{
+-fx-background-color:  #5E5E5E;
+}

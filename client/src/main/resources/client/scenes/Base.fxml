@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1122.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.BaseCtrl">
+   <children>
+      <MenuBar fx:id="menu" prefHeight="30.0" prefWidth="1122.0" style="-fx-background-color: #3E3E3E;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#addTab" styleClass="menuitem" text="New Board" />
+                  <MenuItem fx:id="pref" mnemonicParsing="false" onAction="#preferences" styleClass="menuitem" text="Preferences" />
+                  <MenuItem mnemonicParsing="false" onAction="#terminateApplication" styleClass="menuitem" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#tags" styleClass="menuitem" text="Tags" />
+                  <MenuItem fx:id="boardSettings" disable="true" mnemonicParsing="false" onAction="#showBoardSettings" styleClass="menuitem" text="Board Settings" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#help" styleClass="menuitem" text="Help" />
+                  <MenuItem mnemonicParsing="false" onAction="#shortcuts" text="Keyboard Shortcuts" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="tabs" cache="true" layoutY="30.0" prefHeight="700.0" prefWidth="1122.0" style="-fx-background-color: #787878;" tabClosingPolicy="ALL_TABS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+        <tabs>
+            <Tab closable="false" onSelectionChanged="#addTab" text="+" />
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

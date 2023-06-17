@@ -1,0 +1,5 @@
+rootProject.name = 'talio'
+
+include 'client'
+include 'server'
+include 'commons'

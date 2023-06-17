@@ -1,0 +1,26 @@
+
+.scroll-pane{
+    -fx-background-color:transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+.scroll-bar {
+    -fx-background-color: #5E5E5E;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #7C7C7C;
+    -fx-background-radius: 6px;
+}
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9E9E9E;
+}
+
+.scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #BDBDBD;
+}
+
+
+

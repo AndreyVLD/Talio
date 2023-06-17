@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="30.0" maxWidth="240.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.RecentBoardCtrl">
+   <children>
+      <Rectangle fx:id="rectangle" arcHeight="20.0" arcWidth="20.0" fill="#787878" height="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="240.0" />
+      <Hyperlink fx:id="boardLink" layoutX="-1.0" maxHeight="29.0" maxWidth="200.0" minHeight="29.0" minWidth="200.0" prefHeight="29.0" prefWidth="200.0" text="Hyperlink" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <Button fx:id="button" alignment="CENTER" layoutX="204.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="x">
+         <padding>
+            <Insets bottom="-5.0" left="-5.0" right="-5.0" top="-5.0" />
+         </padding>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

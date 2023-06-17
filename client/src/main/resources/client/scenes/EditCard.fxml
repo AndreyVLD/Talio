@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.scenes.EditCardCtrl">
+     <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="1.7976931348623157E308" minHeight="85.0" prefHeight="85.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="140.0" minHeight="140.0" prefHeight="140.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+     <children>
+         <Label fx:id="createdByLabel" alignment="BOTTOM_CENTER" text="\@username" textFill="#00000080">
+             <GridPane.margin>
+                 <Insets left="20.0" top="75.0" />
+             </GridPane.margin>
+             <font>
+                 <Font name="System Italic" size="12.0" />
+             </font>
+         </Label>
+         <HBox maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+             <children>
+                 <FlowPane fx:id="flowPane" hgap="10.0" prefHeight="93.0" prefWidth="500.0" vgap="10.0">
+                     <children>
+                         <StackPane prefHeight="17.0" prefWidth="73.0">
+                             <children>
+                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f4e" height="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
+                                 <Label alignment="CENTER" prefHeight="27.0" prefWidth="86.0" text="Urgent" textAlignment="JUSTIFY" textFill="WHITE">
+                                     <font>
+                                         <Font name="System Bold" size="13.0" />
+                                     </font>
+                                 </Label>
+                             </children>
+                         </StackPane>
+                         <StackPane prefHeight="17.0" prefWidth="73.0">
+                             <children>
+                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff8221" height="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="116.0" />
+                                 <Label alignment="CENTER" prefHeight="27.0" prefWidth="128.0" text="Due Tomorrow" textAlignment="JUSTIFY" textFill="WHITE">
+                                     <font>
+                                         <Font name="System Bold" size="13.0" />
+                                     </font>
+                                 </Label>
+                             </children>
+                         </StackPane>
+                         <StackPane prefHeight="27.0" prefWidth="49.0">
+                             <children>
+                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21ff47" height="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="55.0" />
+                                 <Label alignment="CENTER" prefHeight="27.0" prefWidth="86.0" text="Done" textAlignment="JUSTIFY" textFill="WHITE">
+                                     <font>
+                                         <Font name="System Bold" size="13.0" />
+                                     </font>
+                                 </Label>
+                             </children>
+                         </StackPane>
+                         <StackPane prefHeight="17.0" prefWidth="73.0" />
+                         <StackPane prefHeight="17.0" prefWidth="73.0">
+                             <children>
+                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21ceff" height="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="124.0" />
+                                 <Label alignment="CENTER" prefHeight="27.0" prefWidth="142.0" text="Tag example 22" textAlignment="JUSTIFY" textFill="WHITE">
+                                     <font>
+                                         <Font name="System Bold" size="13.0" />
+                                     </font>
+                                 </Label>
+                             </children>
+                         </StackPane>
+                         <StackPane prefHeight="17.0" prefWidth="73.0">
+                             <children>
+                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e821ff" height="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
+                                 <Label alignment="CENTER" prefHeight="27.0" prefWidth="85.0" text="Cool Stuff" textAlignment="JUSTIFY" textFill="WHITE">
+                                     <font>
+                                         <Font name="System Bold" size="13.0" />
+                                     </font>
+                                 </Label>
+                             </children>
+                         </StackPane>
+                         <Button fx:id="plusbutton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showListView" prefHeight="26.0" prefWidth="27.0" style="-fx-background-color: lightgray; -fx-border-color: transparent; -fx-border-style: none;" textFill="#000000b6">
+                             <FlowPane.margin>
+                                 <Insets top="-1.0" />
+                             </FlowPane.margin>
+                         </Button>
+                     </children>
+                     <padding>
+                         <Insets left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                 </FlowPane>
+             </children>
+         </HBox>
+         <Pane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="500.0" GridPane.rowIndex="2">
+             <children>
+                 <TextArea fx:id="cardDescription" layoutX="20.0" layoutY="8.0" prefHeight="115.0" prefWidth="460.0" promptText="Description of the task" style="-fx-border-color: white; -fx-background-color: lightgray;" styleClass="text-area" wrapText="true" />
+             </children>
+         </Pane>
+      <Pane fx:id="pane" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="500.0" GridPane.rowIndex="3">
+         <children>
+            <Label fx:id="nestedTasksLabel" layoutX="25.0" layoutY="6.0" prefHeight="18.0" prefWidth="178.0" text="Add a nested task list" textFill="#00000080">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="addNestedTasksButtonView" fitHeight="26.0" fitWidth="27.0" layoutX="447.0" layoutY="4.0" onMouseClicked="#onClickAddSubtasksButton" pickOnBounds="true" preserveRatio="true" />
+            <Separator layoutX="20.0" layoutY="33.0" prefHeight="11.0" prefWidth="460.0" style="-fx-border-width: 3;" />
+            <ProgressBar fx:id="progressBar" layoutX="20.0" layoutY="33.0" prefHeight="12.0" prefWidth="460.0" progress="0.0" />
+            <VBox fx:id="nestedTasksHolder" layoutX="20.0" layoutY="56.0" minHeight="0.0" prefWidth="460.0" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </Pane>
+         <TextField fx:id="cardTitle" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="460.0" style="-fx-background-radius: 10;" styleClass="card-title" text="Do your homework">
+             <GridPane.margin>
+                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+             </GridPane.margin>
+             <font>
+                 <Font size="24.0" />
+             </font>
+         </TextField>
+           <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveAndHideEditCard" prefHeight="40.0" prefWidth="500.0" style="-fx-border-radius: 0; fx-border-top: black; -fx-background-color: #308fff; -fx-border-color: none; -fx-background-radius: 0 0 20 20;" text="Done" textFill="WHITE" GridPane.rowIndex="4">
+               <font>
+                   <Font size="18.0" />
+               </font>
+           </Button>
+     </children>
+ </GridPane>
