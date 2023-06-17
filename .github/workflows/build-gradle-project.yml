@@ -21,6 +21,4 @@ jobs:
         run: mv build/reports/jacoco/aggregate/jacocoTestReport.xml ./coverage/report.xml
       - name: preserve coverage information in an easy-to-reach folder
         run: echo `cat coverage/index.html | grep -o -E "Total[^%]+?%" | sed -E "s/<.*>//" | sed -E "s/Total/TestCoverage:/"`
-        paths: ./coverage
-        coverage: /TestCoverage:(\d+)%/
 
