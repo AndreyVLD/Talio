@@ -16,7 +16,7 @@ jobs:
           chmod +x gradlew
           ./gradlew build
       - name: Run tests
-        run: ./gradlew AggregateJacocoReport
+        run: ./gradlew testCoverage
 
       - name: Upload Report
         uses: 'actions/upload-artifact@v2'
