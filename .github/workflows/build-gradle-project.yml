@@ -49,19 +49,11 @@ jobs:
             Test Coverage: ${{ steps.parse-coverage.outputs.test_coverage }}
             `;
             
-            const octokit = require('@octokit/rest')();
-            octokit.authenticate({
-              type: 'token',
-              token: process.env.GITHUB_TOKEN,
-            });
-            octokit.issues.createComment({
-              owner: process.env.GITHUB_REPOSITORY_OWNER,
-              repo: process.env.GITHUB_REPOSITORY,
-              issue_number: process.env.GITHUB_PULL_REQUEST_NUMBER,
-              body: comment,
+            github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: comment
             });
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-            GITHUB_REPOSITORY: ${{ github.repository }}
-            GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
