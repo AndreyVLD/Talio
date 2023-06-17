@@ -23,10 +23,13 @@ jobs:
           chmod +x ./gradlew
           ./gradlew build
           ./gradlew AggregateJacocoReport
-
-      - name: Upload Report
-        id: jacoco
-        uses: madrapps/jacoco-report@v1.3
+      - name: Upload Report For Pull
+        uses: actions/upload-artifact@v2
         with:
-            paths: ${{ github.workspace }}/build/reports/jacoco/aggregate/jacocoTestReport.xml
-            token: ${{ secrets.GITHUB_TOKEN }}
+          name: coverage-report
+          path: ${{ github.workspace }}/build/reports/jacoco/aggregate/jacocoTestReport.xml
+
+      - name: Codecov Report
+        uses: codecov/codecov-action@v2
+        with:
+          file: ${{ github.workspace }}/build/reports/jacoco/aggregate/jacocoTestReport.xml
