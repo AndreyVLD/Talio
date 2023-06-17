@@ -84,6 +84,7 @@ public class BoardList {
         this.id = id;
     }
 
+    @SuppressWarnings("CyclomaticComplexity")
 
     private void onDragMouse(MouseEvent event){
         if (!listService.dragDropEnabled(0)) return;
