@@ -49,7 +49,7 @@ jobs:
             Test Coverage: ${{ steps.parse-coverage.outputs.test_coverage }}
             `;
             
-            github.issues.createComment({
+            github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.payload.pull_request.number,
